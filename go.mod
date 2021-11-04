@@ -3,11 +3,14 @@ module Gone
 go 1.17
 
 require (
-	github.com/NorwayLobster/gomodone v0.0.0-20211102074849-5d322c6e33f6 // indirect
-	github.com/NorwayLobster/moduletest v0.0.0-20211102071844-c8625eee6a10 // indirect
+	github.com/NorwayLobster/gomodone v0.0.0-20211102074849-5d322c6e33f6
+	github.com/NorwayLobster/moduletest v1.0.0
+	github.com/gin-gonic/gin v1.7.4
+)
+
+require (
 	github.com/fyf2173/moduledependencytest v1.0.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.7.4 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
