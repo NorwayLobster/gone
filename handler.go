@@ -22,8 +22,9 @@ func RankingListHandler(ctx *gin.Context) {
 	}
 	fmt.Printf("numLine: %d\n", numLine)
 	ctx.JSON(200, gin.H{
-		"message":         "pong",
-		"rankinglistName": rankinglistName,
-		"numLine":         numLine,
+		"message": "pong",
+		// "rankinglist": marsh.Json(),
+		// "rankinglistName": rankinglistName,
+		// "numLine":         numLine,
 	})
 }
