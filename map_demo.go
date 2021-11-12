@@ -8,7 +8,7 @@ import (
 //2. map
 
 type Info struct {
-	a string
+	A string
 }
 
 type IdWeight struct {
@@ -47,12 +47,18 @@ func initSignConfig() error {
 }
 
 func map_demo() {
-	var m map[int]Info
+	var m map[int]*Info
 	fmt.Printf("len(map): %d\n", len(m))
 	// fmt.Printf("cap(map): %d\n", cap(m))
 	a, ok := m[1]
 	fmt.Printf("a: %v, okay: %t\n", a, ok)
 	fmt.Println("a: ", a, ", okay:", ok)
+	m = make(map[int]*Info)
+	m[100] = &Info{A: "hello"}
+	m[101] = &Info{A: "world"}
+	for key, value := range m {
+		fmt.Printf("key: %v, value: %+v\n", key, value)
+	}
 
 	initSignConfig()
 }

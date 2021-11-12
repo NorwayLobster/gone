@@ -19,11 +19,11 @@ func module_demo() {
 
 func main() {
 	// time_demo()
-	// map_demo()
-	var str []byte = []byte("くうじょう じょうたろう夜桜")
-	fmt.Printf("str: %s\n", str)
-	result := getText1(str)
-	fmt.Printf("result: %s\n", result)
+	map_demo()
+	// var str []byte = []byte("くうじょう じょうたろう夜桜")
+	// fmt.Printf("str: %s\n", str)
+	// result := getText1(str)
+	// fmt.Printf("result: %s\n", result)
 
 	// redis_demo()
 	// test()
