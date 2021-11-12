@@ -9,7 +9,6 @@ import (
 )
 
 func module_demo() {
-
 	moduletest.Hello()
 	moduletest.Hello1()
 	// moduletestV2.Proverb()
@@ -19,7 +18,9 @@ func module_demo() {
 }
 
 func main() {
-	redis_demo()
+	// time_demo()
+	map_demo()
+	// redis_demo()
 	// test()
 	// module_demo()
 	// startHTTPServer()
