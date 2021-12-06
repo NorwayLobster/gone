@@ -38,11 +38,14 @@ func initSignConfig() error {
 	// monthly.Mapping[id] = []*IdWeight{{Id: id, Weight: 2}}
 	// } else {
 	monthly.Mapping[id] = append(monthly.Mapping[id], &IdWeight{Id: id, Weight: 12})
+	monthly.Mapping[id] = append(monthly.Mapping[id], &IdWeight{Id: id, Weight: 15})
+	monthly.Mapping[id+2] = append(monthly.Mapping[id+2], &IdWeight{Id: id + 2, Weight: 15})
 	// }
 	// }
 	// go结构体存在嵌套结构体时，使用%+v格式化输出时会出现打印指针地址的问题, 如果要实现%+v格式化输出所有的内容，可以通过实现对应结构体的String()方法
 	fmt.Printf("%v\n", monthly.Mapping[id])
 	fmt.Printf("%+v\n", monthly.Mapping[id])
+	fmt.Printf("%+v\n", monthly.Mapping)
 	return nil
 }
 

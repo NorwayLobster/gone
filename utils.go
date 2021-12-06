@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func generate1(a uint32, b uint32) uint64 {
@@ -76,9 +75,11 @@ func degenerate(score uint64) (uint32, uint32) {
 
 func test() {
 
-	timestamp := time.Now().Unix()
+	timestamp := 1637050964
+	// timestamp := time.Now().Unix()
+	// var score uint64 = 216385415764
 	fmt.Printf("timestamp: %v\n", uint32(timestamp))
-	var level uint32 = 55
+	var level uint32 = 49
 	score := generate(uint32(99)-level, uint32(timestamp))
 	fmt.Printf("after generate, score: %d\n", score)
 	fmt.Println("-----------------------------------------------")
@@ -86,5 +87,5 @@ func test() {
 	level = uint32(99) - a
 	fmt.Printf("a: %d\n", a)
 	fmt.Printf("b: %d\n", b)
-
+	fmt.Printf("level: %d\n", level)
 }
