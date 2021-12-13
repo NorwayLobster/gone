@@ -6,6 +6,7 @@ import (
 
 	"github.com/NorwayLobster/gomodone"
 	"github.com/NorwayLobster/moduletest"
+	// cron "github.com/robfig/cron/v3"
 	// moduletestV2 "github.com/NorwayLobster/moduletest/v2"
 )
 
@@ -47,6 +48,7 @@ func main() {
 	// receiver_demo()
 	// interface_demo()
 	// map_demo()
+	sync_map_demo()
 	// utf8_demo()
 	// redis_demo()
 	// test()
@@ -54,5 +56,7 @@ func main() {
 	// startHTTPServer()
 	// uint32_demo()
 	// app_demo()
-	type_assertion_demo()
+	// type_assertion_demo()
+	// null_interface_demo()
+	// mysqlcli_demo()
 }

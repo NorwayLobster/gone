@@ -7,16 +7,30 @@ import (
 )
 
 func type_assertion_demo() {
+	// type_assertion_demo0()
 	// type_assertion_demo1()
 	type_assertion_demo2()
 	// type_assertion_demo3()
 }
 
+func type_assertion_demo0() {
+	var x interface{}
+	// x = 10
+	x = "hello"
+	value := x.(int)
+	fmt.Println(value)
+}
+
 func type_assertion_demo1() {
 	var x interface{}
-	x = 10
-	value, ok := x.(int)
-	fmt.Print(value, ",", ok)
+	x = "hello"
+	// x = 10
+	if value, ok := x.(int); ok != false {
+		fmt.Println(value, ",", ok)
+	} else {
+
+		fmt.Println(value, ",", ok)
+	}
 }
 
 func type_assertion_demo2() {
@@ -73,7 +87,7 @@ func GetInt(some interface{}) int {
 		sp.Print()
 	}
 
-	// return some.Get()
+	// return some.Get() //error
 	return some.(I).Get()
 }
 
