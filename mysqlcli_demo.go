@@ -369,7 +369,7 @@ func mysqlcli_select_prepare_demo() {
 
 	if err != nil {
 		// lu.Log().Error("exec select data from db failed. roleID:", roleID, err)
-		fmt.Errorf("exec select data from db failed. err:", err)
+		// fmt.Errorf("exec select data from db failed. err:", err)
 		return
 	}
 	fmt.Println("======exec=========2")

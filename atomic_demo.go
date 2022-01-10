@@ -19,5 +19,5 @@ func atomic_demo() {
 	fmt.Printf("old_a:%d\n", old_a)
 	fmt.Printf("b:%d\n", b)
 
-	atomic.Value()
+	// atomic.Value()
 }
