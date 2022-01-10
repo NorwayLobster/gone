@@ -76,7 +76,7 @@ func getText1(str []byte) []byte {
 	var numCh int = 0
 	var first []byte
 	var last []byte
-	for i := 0; i < len(str) && numCh <= 4; {
+	for i := 0; i < len(str); {
 		if str[i] < 128 { //a single byte
 			numCh++
 			if numCh == 1 {
@@ -121,7 +121,7 @@ func utf8_demo() {
 	// var str []byte = []byte("中华")
 	// var str []byte = []byte("中华人")
 	// var str []byte = []byte("中华人民")
-	var str []byte = []byte("中华人民共和国")
+	var str []byte = []byte("中华人民共和helloofasd国")
 	fmt.Printf("str: %s\n", str)
 	result := getText1(str)
 	fmt.Printf("result: %s\n", result)

@@ -39,6 +39,8 @@ func module_demo() {
 }
 
 func main() {
+	fmt.Printf("Hello world\n")
+	fmt.Printf("Hello\n")
 	// parse_demo()
 	// time_demo()
 	// timer_demo()
@@ -48,7 +50,7 @@ func main() {
 	// receiver_demo()
 	// interface_demo()
 	// map_demo()
-	sync_map_demo()
+	// sync_map_demo()
 	// utf8_demo()
 	// redis_demo()
 	// test()
@@ -59,4 +61,11 @@ func main() {
 	// type_assertion_demo()
 	// null_interface_demo()
 	// mysqlcli_demo()
+	// rand.Seed(time.Now().Unix())
+	// rand.Seed(1)
+	// rand_demo()
+	// atomic_demo()
+	// sentry_demo()
+	// zerolog_demo()
+	context_demo1()
 }
