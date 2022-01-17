@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 	"strconv"
-
-	"github.com/NorwayLobster/gomodone"
-	"github.com/NorwayLobster/moduletest"
+	// "github.com/NorwayLobster/gomodone"
+	// "github.com/NorwayLobster/moduletest"
 	// cron "github.com/robfig/cron/v3"
 	// moduletestV2 "github.com/NorwayLobster/moduletest/v2"
 )
@@ -29,18 +28,10 @@ func parse_demo() {
 	fmt.Printf("%v, %d, %b, %T\n", a, aBinary, aBinary, aBinary)
 }
 
-func module_demo() {
-	moduletest.Hello()
-	moduletest.Hello1()
-	// moduletestV2.Proverb()
-	// moduletest.Proverb()
-	gomodone.SayHi("hello")
-	fmt.Println(moduletest.Hello())
-}
-
 func main() {
 	fmt.Printf("Hello world\n")
 	fmt.Printf("Hello\n")
+	module_demo()
 	// parse_demo()
 	// time_demo()
 	// timer_demo()
@@ -67,5 +58,7 @@ func main() {
 	// atomic_demo()
 	// sentry_demo()
 	// zerolog_demo()
-	context_demo1()
+	// context_demo1()
+	// a := Sum(1, 32)
+	// fmt.Printf("sum:%d\n", a)
 }

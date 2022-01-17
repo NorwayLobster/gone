@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"fmt"
+	// "fmt"
 	"testing"
 	"time"
 )
@@ -10,16 +10,17 @@ import (
 var print bool
 
 func init() {
+	testing.Init()
 	flag.BoolVar(&print, "p", false, "print test log")
 	flag.Parse()
 }
 
-func TestSum(t *testing.T) {
-	val := Sum(1, 2)
-	if print {
-		fmt.Println("sum=", val)
-	}
-}
+// func TestSum(t *testing.T) {
+// 	val := Sum(1, 2)
+// 	if print {
+// 		fmt.Println("sum=", val)
+// 	}
+// }
 
 // -bench 基准测试
 func BenchmarkSum(b *testing.B) {
