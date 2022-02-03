@@ -13,6 +13,16 @@ import (
 	v2 "github.com/winlinvip/mod_major_releases/v2"
 )
 
+//you should read // https://go.dev/learn/
+// For a high-level module development workflow – which includes publishing – see Module release and versioning workflow.
+//0.1 https://go.dev/doc/modules/release-workflow
+// For an overview of module development, see Developing and publishing modules
+//0.2 https://go.dev/doc/modules/developing
+
+//1. https://go.dev/doc/tutorial/create-module
+//2. https://go.dev/doc/modules/managing-source
+//3. https://go.dev/doc/modules/managing-dependencies#naming_module
+//4. https://go.dev/blog/module-compatibility
 func module_demo() {
 	module_demo1()
 	mod_major_releases_demo()
