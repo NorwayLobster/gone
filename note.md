@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-02-10 11:18:45
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-02-10 21:14:38
+ * @LastEditTime: 2022-02-11 00:57:30
  * @FilePath: /gone/note.md
 -->
 go test -mod=vendor ./... -cover -coverprofile out.cover && 
@@ -19,3 +19,6 @@ go help test
 go tool pprof -h
 gofmt -l -w .
 go doc gofmt
+gccgo
+go tool trace
+perf
