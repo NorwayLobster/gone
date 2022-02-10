@@ -1,3 +1,9 @@
+/*
+ * @Date: 2022-02-10 20:06:55
+ * @LastEditors: ChengWang
+ * @LastEditTime: 2022-02-10 20:08:49
+ * @FilePath: /gone/main.go
+ */
 package main
 
 import (
@@ -31,7 +37,7 @@ func parse_demo() {
 func main() {
 	fmt.Printf("Hello world\n")
 	fmt.Printf("Hello\n")
-	module_demo()
+	// module_demo()
 	// parse_demo()
 	// time_demo()
 	// timer_demo()
@@ -61,4 +67,6 @@ func main() {
 	// context_demo1()
 	// a := Sum(1, 32)
 	// fmt.Printf("sum:%d\n", a)
+	// profiling_demo()
+	slice_delete_demo()
 }
