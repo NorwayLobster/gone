@@ -1,13 +1,14 @@
 /*
  * @Date: 2022-02-15 16:30:28
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-02-15 20:19:38
+ * @LastEditTime: 2022-02-17 11:06:17
  * @FilePath: /gone/zap_demo.go
  */
 
 package main
 
 import (
+	"math"
 	"net/http"
 	"os"
 
@@ -16,6 +17,7 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
+//git repo:  sandipb/zap-examples
 var sugarLogger *zap.SugaredLogger
 var logger *zap.Logger
 
@@ -28,6 +30,17 @@ func zap_demo() {
 	// simpleHttpGet("http://www.sogo.com")
 }
 
+func zap_demo2() {
+	zap.S().Infow("An info message", "iteration", 1)
+	// zap.L().Infow("An info message", "iteration", 1)
+	undo := zap.ReplaceGlobals(logger)
+	undo()
+}
+
+func zap_demo3() { // customed logger
+	cfg := zap.Config{}
+	logger, _ = cfg.Build()
+}
 func simpleHttpGetWithSugarLogger(url string) {
 	sugarLogger.Debugf("Trying to hit GET request for %s", url)
 	resp, err := http.Get(url)
@@ -41,7 +54,10 @@ func simpleHttpGetWithSugarLogger(url string) {
 
 func simpleHttpGetWithLogger(url string) {
 	var i1 int = 5
-	logger.Debug("Trying to hit GET request for", zap.Int("val", i1))
+
+	for i := 0; i < math.MaxInt32; i++ {
+		logger.Debug("Trying to hit GET request for", zap.Int("val", i1))
+	}
 	resp, err := http.Get(url)
 	if err != nil {
 		logger.Error("Error Msg:", zap.String("Error fetching URL:", url), zap.NamedError("Name Error:", err))
@@ -70,13 +86,15 @@ func InitLogger1() {
 
 //which one is text encoder, i.e. output log in text?
 func getEncoder() zapcore.Encoder {
+	//set encoder config
 	encoderConfig := zap.NewProductionEncoderConfig()
 	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder // 修改时间编码器
 	// encoderConfig.EncodeTime = func(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
 	// enc.AppendString(t.Format("2006-01-02T15:04:05.000Z0700"))
 	// }
 	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder // 在日志文件中使用大写字母记录日志级别
-	return zapcore.NewConsoleEncoder(encoderConfig)         //
+	// return zapcore.NewConsoleEncoder(encoderConfig)         //
+	return zapcore.NewJSONEncoder(encoderConfig)
 }
 
 func getEncoder1() zapcore.Encoder { //
@@ -86,11 +104,11 @@ func getEncoder1() zapcore.Encoder { //
 
 func getLogWriter() zapcore.WriteSyncer {
 	lumberJackLogger := &lumberjack.Logger{
-		Filename:   "./zap_test.log",
-		MaxSize:    1,
-		MaxBackups: 5,
+		Filename:   "./zap_rotation_test.log",
+		MaxSize:    2,
+		MaxBackups: 10,
 		MaxAge:     30,
-		Compress:   false,
+		Compress:   true, // Compress:   false,
 	}
 	return zapcore.AddSync(lumberJackLogger)
 }

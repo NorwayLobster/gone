@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-02-10 20:06:55
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-02-10 20:08:49
+ * @LastEditTime: 2022-02-17 11:32:24
  * @FilePath: /gone/main.go
  */
 package main
@@ -68,5 +68,7 @@ func main() {
 	// a := Sum(1, 32)
 	// fmt.Printf("sum:%d\n", a)
 	// profiling_demo()
-	slice_delete_demo()
+	// slice_delete_demo()
+	// zap_demo()
+	time_utc_gmt()
 }
