@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-02-15 16:30:28
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-02-17 11:06:17
+ * @LastEditTime: 2022-02-20 22:00:20
  * @FilePath: /gone/zap_demo.go
  */
 
@@ -17,6 +17,9 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
+//Q1: logger.Info() 是否线程安全
+//Q2: server一般不意外退出，无法执行logger.Sync(), 日志是否能及时刷出
+//Q3:  模仿lugrus,把logger封装到包里面，每次get即可，且只能初始化一次
 //git repo:  sandipb/zap-examples
 var sugarLogger *zap.SugaredLogger
 var logger *zap.Logger
