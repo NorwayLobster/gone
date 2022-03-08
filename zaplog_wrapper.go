@@ -1,17 +1,14 @@
 /*
  * @Date: 2022-02-15 16:30:28
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-02-23 20:05:56
- * @FilePath: /gone/zap_demo.go
+ * @LastEditTime: 2022-03-08 20:03:30
+ * @FilePath: /gone/zaplog_wrapper.go
  */
 
 package main
 
 import (
-	"math"
-	"net/http"
 	"os"
-	"sync"
 
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
@@ -24,96 +21,29 @@ import (
 //git repo:  sandipb/zap-examples
 var sugarLogger *zap.SugaredLogger
 var logger *zap.Logger
-var logOnce sync.Once
-
-func zap_demo() {
-
-	// logOnce.Do(
-	InitLogger(zapcore.DebugLevel, "./zap_gin_rotation.log", 1, 10, 30, false)
-	defer logger.Sync()
-	// defer sugarLogger.Sync()
-	// simpleHttpGet("www.sogo.com")
-	simpleHttpGetWithLogger("www.baidu.com")
-	// simpleHttpGet("http://www.sogo.com")
-}
-
-func zap_demo2() {
-	zap.S().Infow("An info message", "iteration", 1)
-	// zap.L().Infow("An info message", "iteration", 1)
-	undo := zap.ReplaceGlobals(logger)
-	undo()
-}
-
-func zap_demo3() { // customed logger
-	cfg := zap.Config{}
-	logger, _ = cfg.Build()
-}
-func simpleHttpGetWithSugarLogger(url string) {
-	sugarLogger.Debugf("Trying to hit GET request for %s", url)
-	resp, err := http.Get(url)
-	if err != nil {
-		sugarLogger.Errorf("Error fetching URL %s : Error = %s", url, err)
-	} else {
-		sugarLogger.Infof("Success! statusCode = %s for URL %s", resp.Status, url)
-		resp.Body.Close()
-	}
-}
-
-func simpleHttpGetWithLogger(url string) {
-	var i1 int = 5
-
-	for i := 0; i < math.MaxInt32; i++ {
-		logger.Debug("Trying to hit GET request for", zap.Int("val", i1))
-	}
-	resp, err := http.Get(url)
-	if err != nil {
-		logger.Error("Error Msg:", zap.String("Error fetching URL:", url), zap.NamedError("Name Error:", err))
-	} else {
-		logger.Info("Info Msg:", zap.String("Success! statusCode:", url), zap.String(",for URL:", resp.Status))
-		resp.Body.Close()
-	}
-}
 
 func Info(msg string, fields ...zap.Field) {
 	logger.Info(msg, fields...)
 }
-
 func Debug(msg string, fields ...zap.Field) {
 	logger.Debug(msg, fields...)
 }
-
 func Warn(msg string, fields ...zap.Field) {
 	logger.Warn(msg, fields...)
 }
-
 func Error(msg string, fields ...zap.Field) {
 	logger.Error(msg, fields...)
 }
-
 func Fatal(msg string, fields ...zap.Field) {
 	logger.Fatal(msg, fields...)
-}
-
-func AddContext(fields ...zap.Field) {
-	logger = logger.With(fields...)
 }
 
 func Sync() {
 	logger.Sync()
 }
-
-func InitZapLog() {
-	logOnce.Do(InitZap)
-}
-
-func InitZap() {
-
-	InitLogger(zapcore.DebugLevel, "./zap_gin_rotation.log", 1, 10, 30, false)
-}
-
-func InitLogger(level zapcore.Level, logPath string, maxSize, maxBackups, maxAge int, isCompressed bool) {
+func InitLogger(level zapcore.Level, maxSize, maxBackups, maxAge int, isCompressed bool) {
 	encoder := getEncoder()
-	writeSyncer := getLogWriter(logPath, maxSize, maxBackups, maxAge, isCompressed)
+	writeSyncer := getLogWriter(maxSize, maxBackups, maxAge, isCompressed)
 	core := zapcore.NewCore(encoder, writeSyncer, level)
 	logger = zap.New(core, zap.AddCaller())
 	// sugarLogger = logger.Sugar()
@@ -145,9 +75,9 @@ func getEncoder1() zapcore.Encoder { //
 	return zapcore.NewJSONEncoder(zap.NewProductionEncoderConfig())
 }
 
-func getLogWriter(logPath string, maxSize, maxBackups, maxAge int, isCompressed bool) zapcore.WriteSyncer {
+func getLogWriter(maxSize, maxBackups, maxAge int, isCompressed bool) zapcore.WriteSyncer {
 	lumberJackLogger := &lumberjack.Logger{
-		Filename:   logPath,      //"./zap_gin_rotation.log",
+		Filename:   "./zap_gin_rotation.log",
 		MaxSize:    maxSize,      //1,
 		MaxBackups: maxBackups,   //10,
 		MaxAge:     maxAge,       //30,

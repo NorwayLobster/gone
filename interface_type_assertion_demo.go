@@ -1,3 +1,9 @@
+/*
+ * @Date: 2022-03-08 18:26:41
+ * @LastEditors: ChengWang
+ * @LastEditTime: 2022-03-08 18:32:09
+ * @FilePath: /gone/type_assertion_demo.go
+ */
 package main
 
 import (
@@ -21,6 +27,9 @@ func type_assertion_demo0() {
 	fmt.Println(value)
 }
 
+//https://blog.csdn.net/HaoDaWang/article/details/80748106
+//x.(T): x必须为接口类型, T为具体类型或接口类型
+//case1: 断言类型T为具体类型
 func type_assertion_demo1() {
 	var x interface{}
 	x = "hello"
@@ -82,6 +91,7 @@ func (p *S) Print() {
 }
 
 //使用类型断言
+//case2: 断言类型T为接口类型
 func GetInt(some interface{}) int {
 	if sp, ok := some.(P); ok { // 此处断言some这个接口后面隐藏的变量实现了接口P 从而调用了. P接口中的函数Print.
 		sp.Print()

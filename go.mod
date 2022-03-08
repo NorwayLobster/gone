@@ -9,6 +9,7 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/gomodule/redigo v1.8.8
+	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/robfig/cron v1.2.0
 	github.com/rs/zerolog v1.26.1
 	github.com/satori/go.uuid v1.2.0
@@ -16,6 +17,7 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/winlinvip/mod_major_releases v1.0.1
 	github.com/winlinvip/mod_major_releases/v2 v2.0.3
+	go.uber.org/zap v1.21.0
 	golang.org/x/net v0.0.0-20220114011407-0dd24b26b47d
 )
 
@@ -35,8 +37,11 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/smartwalle/xid v1.0.2 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
+	go.uber.org/atomic v1.7.0 // indirect
+	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/crypto v0.0.0-20211215165025-cf75a172585e // indirect
 	golang.org/x/sys v0.0.0-20211007075335-d3039528d8ac // indirect
+	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )

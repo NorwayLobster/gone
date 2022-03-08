@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-02-10 20:06:55
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-02-17 11:32:24
+ * @LastEditTime: 2022-03-08 18:46:00
  * @FilePath: /gone/main.go
  */
 package main
@@ -52,7 +52,13 @@ func main() {
 	// redis_demo()
 	// test()
 	// module_demo()
+
+	//	// InitLogger(zapcore.DebugLevel)
+
+	// InitLogger(zapcore.DebugLevel, 1, 10, 30, false)
+	// defer logger.Sync()
 	// startHTTPServer()
+
 	// uint32_demo()
 	// app_demo()
 	// type_assertion_demo()
@@ -70,5 +76,7 @@ func main() {
 	// profiling_demo()
 	// slice_delete_demo()
 	// zap_demo()
-	time_utc_gmt()
+	// InitLogger()
+	// time_utc_gmt()
+	interface_embeded_into_struct()
 }

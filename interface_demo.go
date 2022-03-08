@@ -1,3 +1,9 @@
+/*
+ * @Date: 2022-02-15 20:27:14
+ * @LastEditors: ChengWang
+ * @LastEditTime: 2022-03-08 18:00:57
+ * @FilePath: /gone/interface_demo.go
+ */
 package main
 
 import "fmt"
