@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-02-21 10:21:15
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-02-21 10:50:07
+ * @LastEditTime: 2022-04-07 11:16:27
  * @FilePath: /gone/gin_handler.go
  */
 package main
@@ -11,7 +11,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
+	// "go.uber.org/zap"
 )
 
 func PongHandler(ctx *gin.Context) {
@@ -23,12 +23,11 @@ func PongHandler(ctx *gin.Context) {
 	}
 	fmt.Printf("body:%v\n", body)
 	fmt.Printf("client ip:%v\n", ctx.ClientIP())
-	i1 := 10
-
+	// i1 := 10
 	for i := 0; i < 10000; i++ {
 		// for i := 0; i < math.MaxInt32; i++ {
 		// logger.Debug("Trying to hit GET request for", zap.Int("val", i1))
-		logger.Debug("Trying to hit Pong Handler for", zap.String("line:", line), zap.Int("int val:", i1))
+		// logger.Debug("Trying to hit Pong Handler for", zap.String("line:", line), zap.Int("int val:", i1))
 	}
 
 	// ctx.Status(200)

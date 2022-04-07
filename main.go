@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-02-10 20:06:55
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-03-08 18:46:00
+ * @LastEditTime: 2022-04-07 11:14:29
  * @FilePath: /gone/main.go
  */
 package main
@@ -57,7 +57,7 @@ func main() {
 
 	// InitLogger(zapcore.DebugLevel, 1, 10, 30, false)
 	// defer logger.Sync()
-	// startHTTPServer()
+	startHTTPServer()
 
 	// uint32_demo()
 	// app_demo()
@@ -78,5 +78,5 @@ func main() {
 	// zap_demo()
 	// InitLogger()
 	// time_utc_gmt()
-	interface_embeded_into_struct()
+	// interface_embeded_into_struct()
 }

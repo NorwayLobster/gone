@@ -19,6 +19,7 @@ require (
 	github.com/winlinvip/mod_major_releases/v2 v2.0.3
 	go.uber.org/zap v1.21.0
 	golang.org/x/net v0.0.0-20220114011407-0dd24b26b47d
+	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
 )
 
 require (
