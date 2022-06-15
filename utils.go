@@ -89,3 +89,26 @@ func test() {
 	fmt.Printf("b: %d\n", b)
 	fmt.Printf("level: %d\n", level)
 }
+
+func test_2() {
+	var score uint64 = 42758046878673 //level: 45 ts: 1647446993 2022-03-17 00:09:53
+	// var score uint64 = 42762342086126// level: 44 ts: 1647687150 2022-03-19 18:52:30
+	// 1647829911
+	level, ts := Degenerate(score)
+	fmt.Printf("level: %d\n", level)
+	fmt.Printf("ts: %d\n", ts)
+}
+
+const MAX_TOWER_LEVEL uint32 = 10000
+
+func Degenerate(score uint64) (uint32, uint32) {
+	var level_tmp uint32 = uint32(score >> 32)
+	var timestamp uint32 = uint32((score << 32) >> 32)
+	level := MAX_TOWER_LEVEL - level_tmp
+	return level, timestamp
+}
+
+func Generate(level uint32, timestamp int64) uint64 {
+	var score uint64 = (uint64(MAX_TOWER_LEVEL-level) << 32) | uint64(timestamp)
+	return score
+}

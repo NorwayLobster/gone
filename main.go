@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-02-10 20:06:55
  * @LastEditors: ChengWang
- * @LastEditTime: 2022-04-07 11:14:29
+ * @LastEditTime: 2022-07-20 17:48:02
  * @FilePath: /gone/main.go
  */
 package main
@@ -73,10 +73,15 @@ func main() {
 	// context_demo1()
 	// a := Sum(1, 32)
 	// fmt.Printf("sum:%d\n", a)
-	// profiling_demo()
+	// profiling_server_demo()
 	// slice_delete_demo()
 	// zap_demo()
 	// InitLogger()
 	// time_utc_gmt()
 	// interface_embeded_into_struct()
+	// prometheus_sdk()
+	// runtime_stack()
+	// fmt_format_demo()
+
+	test_2()
 }
