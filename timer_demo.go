@@ -9,11 +9,15 @@ import (
 // NewTimer()
 // timer.AfterFunc()
 
+func timer_demo() {
+	timer_demo1()
+	time.Sleep(time.Second * 4)
+}
+
 func timer_demo1() {
 	f := func() { fmt.Println("I Love You!") }
 	time.AfterFunc(time.Second*2, f)
-
-	time.Sleep(time.Second * 4)
+	//time.Sleep(time.Second * 4)
 }
 
 func timer_demo2() {
@@ -38,7 +42,7 @@ func timer_demo3() {
 	}
 }
 
-func timer_demo() {
+func timer_demo4() {
 	f := func() { fmt.Println("I Love You!") }
 	timerForStop := time.NewTimer(5 * time.Second)
 	for {
