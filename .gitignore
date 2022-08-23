@@ -1,6 +1,8 @@
 *.svg
 *.prof
+*.idea
 zap.log
 bililog
 log
+main
 main
